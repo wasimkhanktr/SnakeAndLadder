@@ -11,22 +11,28 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             Random random = new Random();
-            int DiceNo = random.Next(1, 7);
-            int options = random.Next(1, 4);
             int position = 0;
             const int LADDER = 1;
             const int NOPLAY = 2;
             const int SNAKE = 3;
-            switch (options)
+            while (position < 100)
             {
-                case LADDER:
-                    position += DiceNo;
-                    break;
-                case NOPLAY:
-                    break;
-                case SNAKE:
-                    position -= DiceNo;
-                    break;
+                int DiceNo = random.Next(1, 7);
+                int options = random.Next(1, 4);
+                switch (options)
+                {
+                    case LADDER:
+                        if (position + DiceNo > 100)
+                            break;
+                        position += DiceNo;
+                        break;
+                    case NOPLAY:
+                        break;
+                    case SNAKE:
+                        position -= DiceNo;
+                        position = Math.Max(position, 0);
+                        break;
+                }
             }
             Console.WriteLine("position is " + position);
         }
