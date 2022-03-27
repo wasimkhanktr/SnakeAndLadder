@@ -11,8 +11,24 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             Random random = new Random();
-            int position = random.Next(1, 7);
-            Console.WriteLine("position of dice is " + position);
+            int DiceNo = random.Next(1, 7);
+            int options = random.Next(1, 4);
+            int position = 0;
+            const int LADDER = 1;
+            const int NOPLAY = 2;
+            const int SNAKE = 3;
+            switch (options)
+            {
+                case LADDER:
+                    position += DiceNo;
+                    break;
+                case NOPLAY:
+                    break;
+                case SNAKE:
+                    position -= DiceNo;
+                    break;
+            }
+            Console.WriteLine("position is " + position);
         }
     }
 }
