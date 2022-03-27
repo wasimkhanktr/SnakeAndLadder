@@ -12,6 +12,7 @@ namespace SnakeAndLadder
         {
             Random random = new Random();
             int position = 0;
+            int diceRolledCount = 0;
             const int LADDER = 1;
             const int NOPLAY = 2;
             const int SNAKE = 3;
@@ -33,8 +34,10 @@ namespace SnakeAndLadder
                         position = Math.Max(position, 0);
                         break;
                 }
+                diceRolledCount++;
+                Console.WriteLine("The current position is " + position);
             }
-            Console.WriteLine("position is " + position);
+            Console.WriteLine("No of times dice was rolled " + diceRolledCount);
         }
     }
 }
